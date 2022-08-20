@@ -31,29 +31,37 @@ public class Main {
                     continue;
                 }
                 productCount = Integer.parseInt(parts[1]); // ввод количества товара
-                if (productCount < 0) {
-                    System.out.println("Вы ввели отрицательное количество продукта, надо > 0");
-                    continue;
-                }
+                if (productCount == 0) {amountProduct[productNumber] = 0;}
+                //    System.out.println("Вы ввели отрицательное количество продукта, надо > 0");
+                //    continue;
+                //}
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка ввода символов, надо цифрами вводить");
                 continue;
             }
 
-            int currentPrice = prices[productNumber]; // текущая цена на товар
+            // текущая цена на товар
             amountProduct[productNumber] += productCount; // сумма введеного кол. продукта
-            int sumP = productCount * currentPrice; // цена за один вид товара
-            sumProducts += sumP; // цена за все товары
         }
-        System.out.println("Ваша корзина:");
-        for (int i = 0; i < products.length; i++) {
-            if (amountProduct[i] != 0) {
-                System.out.println(products[i] + " " + amountProduct[i] + " шт. " +
-                        prices[i] + " руб/шт " + amountProduct[i] * prices[i] + " руб. в сумме");
-            }
-        }
-        System.out.println("Итого: " + sumProducts + " руб.");
-        System.out.println("До свидания! Ждём вас снова!");
 
+        //int currentPrice = prices[productNumber];
+
+        for (int i = 0; i < products.length; i++) {
+            if (amountProduct[i] < 0) {
+                amountProduct[i] = 0;}
+            int sumP = amountProduct[i] * prices[i]; // цена за один вид товара
+            sumProducts += sumP; }// цена за все товары
+
+            System.out.println("Ваша корзина:");
+            for (int i = 0; i < products.length; i++) {
+                if (amountProduct[i] > 0) {
+                    System.out.println(products[i] + " " + amountProduct[i] + " шт. " +
+                            prices[i] + " руб/шт " + amountProduct[i] * prices[i] + " руб. в сумме");
+                }
+            }
+            System.out.println("Итого: " + sumProducts + " руб.");
+            System.out.println("До свидания! Ждём вас снова!");
+
+        }
     }
-}
+
