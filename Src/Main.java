@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int sumProducts = 0;
-        String[] products = {"Хлеб", "Яблоки", "Молоко", "Сахар"}; // товары
+        String[] products = {"Хлеб", "Яблоки", "Молоко", "Сахар", "Макароны"}; // товары
         String[] saleProducts = {"Гречка", "Йогурт", "Колбаса"}; // товары по акции "3 по цене 2х"
         int[] prices = {50, 100, 200, 70, 45, 80, 65, 290}; // цены товаров
         System.out.println("Список товаров для покупки");
@@ -15,7 +15,7 @@ public class Main {
             System.out.println((i + 1 + products.length) + ". " + saleProducts[i]
                     + " цена = " + prices[i + products.length] + " руб./шт.");
         }
-        int[] amountProduct = new int[products.length];
+        int[] amountProduct = new int[products.length+ saleProducts.length];
         int productNumber = 0;
         int productCount = 0;
         while (true) {
