@@ -26,8 +26,13 @@ public class Main {
                     continue;
                 }
                 productNumber = Integer.parseInt(parts[0]) - 1; //ввод товара
+
                 if ((productNumber + 1) > products.length || (productNumber + 1) <= 0) {
                     System.out.println("Вы вышли из списка подуктов, надо от 1 до " + products.length);
+
+                if ((productNumber + 1) > (products.length + saleProducts.length) || (productNumber + 1) <= 0) {
+                    System.out.println("Вы вышли из списка подуктов, надо от 1 до " + (products.length + saleProducts.length));
+
                     continue;
                 }
                 productCount = Integer.parseInt(parts[1]); // ввод количества товара
