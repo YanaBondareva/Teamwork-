@@ -4,10 +4,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int sumProducts = 0;
         String[] products = {"Хлеб", "Яблоки", "Молоко", "Сахар"}; // товары
-        int[] prices = {50, 100, 200, 70}; // цена
+        String[] saleProducts = {"Гречка", "Йогурт", "Колбаса"}; // товары по акции "3 по цене 2х"
+        int[] prices = {50, 100, 200, 70, 45, 80, 65, 290}; // цены товаров
         System.out.println("Список товаров для покупки");
         for (int i = 0; i < products.length; i++) {
             System.out.println((i + 1) + ". " + products[i] + " цена = " + prices[i] + " руб./шт.");
+        }
+        System.out.println("Список товаров для покупки по акции: 3 по цене 2-х");
+        for (int i = 0; i < saleProducts.length; i++) {
+            System.out.println((i + 1 + products.length) + ". " + saleProducts[i]
+                    + " цена = " + prices[i + products.length] + " руб./шт.");
         }
         int[] amountProduct = new int[products.length];
         int productNumber = 0;
@@ -27,8 +33,6 @@ public class Main {
                 }
                 productNumber = Integer.parseInt(parts[0]) - 1; //ввод товара
 
-                if ((productNumber + 1) > products.length || (productNumber + 1) <= 0) {
-                    System.out.println("Вы вышли из списка подуктов, надо от 1 до " + products.length);
 
                 if ((productNumber + 1) > (products.length + saleProducts.length) || (productNumber + 1) <= 0) {
                     System.out.println("Вы вышли из списка подуктов, надо от 1 до " + (products.length + saleProducts.length));
@@ -39,20 +43,14 @@ public class Main {
                 if (productCount == 0) {
                     amountProduct[productNumber] = 0;
                 }
-                //    System.out.println("Вы ввели отрицательное количество продукта, надо > 0");
-                //    continue;
-                //}
+
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка ввода символов, надо цифрами вводить");
                 continue;
             }
 
-            // текущая цена на товар
             amountProduct[productNumber] += productCount; // сумма введеного кол. продукта
         }
-
-
-
 
 
         for (int i = 0; i < products.length; i++) {
