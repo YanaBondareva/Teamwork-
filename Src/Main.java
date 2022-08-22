@@ -89,14 +89,7 @@ public class Main {
                 amountProduct[i] = 0;}
             int sumP = amountProduct[i] * prices[i]; // цена за один вид товара
             sumProducts += sumP; }// цена за все товары
-
-        System.out.println("Ваша корзина:");
-        for (int i = 0; i < products.length; i++) {
-            if (amountProduct[i] > 0) {
-                System.out.println(products[i] + " " + amountProduct[i] + " шт. " +
-                        prices[i] + " руб/шт " + amountProduct[i] * prices[i] + " руб. в сумме");
-            }
-
+                        
         }
         System.out.println("Итого: "+sumProducts+" руб.");
         System.out.println("До свидания! Ждём вас снова!");
