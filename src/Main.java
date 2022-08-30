@@ -64,11 +64,10 @@ public class Main {
                     amountProduct[i] = 0;
                     sumP = amountProduct[i] * prices[i];
                     sumProducts += sumP;
+                } else {
+                    sumP = amountProduct[i] * prices[i]; // цена за выбранное колличество продукта без акции
+                    sumProducts += sumP;
                 }
-            }
-            else{
-                sumP = amountProduct[i] * prices[i]; // цена за выбранное колличество продукта без акции
-                sumProducts += sumP;
             }
 
         }
