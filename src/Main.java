@@ -56,7 +56,7 @@ public class Main {
         int sumP = 0;
 
         for (int i = 0; i < products.length + saleProducts.length; i++) {
-            if (i > products.length && amountProduct[i] == 3) {
+            if (i > products.length-1 && amountProduct[i] == 3) {
                 sumP = amountProduct[i] * prices[i] - prices[i];
                 sumProducts += sumP;
             } else {
